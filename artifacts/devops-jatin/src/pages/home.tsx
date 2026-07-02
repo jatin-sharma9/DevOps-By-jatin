@@ -86,7 +86,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="p-6 font-mono text-sm leading-relaxed text-blue-300 bg-background/90 min-h-[300px]">
-                <p><span className="text-secondary">jatin@production:~$</span> curl -sL https://devopswithjatin.com/skills</p>
+                <p><span className="text-secondary">jatin@production:~$</span> curl -sL https://devops.jatinsharma.com/skills</p>
                 <p className="mt-2 text-foreground">Loading expert profile...</p>
                 <div className="mt-4 pl-4 border-l-2 border-primary/30">
                   <p><span className="text-primary">"cloud"</span>: ["AWS", "Azure", "GCP"],</p>

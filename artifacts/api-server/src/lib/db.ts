@@ -421,7 +421,7 @@ export const projects: Project[] = [
     description: "A complete production-grade CI/CD pipeline using GitHub Actions to compile a microservices app, test dependencies, build optimized Docker images, and push them to ECR. ArgoCD continuously monitors a configuration repository and deploys manifests into an AWS EKS cluster with zero-downtime rolling updates.",
     tags: ["Kubernetes", "ArgoCD", "GitHub Actions", "Docker", "AWS EKS", "ECR"],
     level: "Advanced",
-    link: "https://demo.devopswithjatin.com/gitops",
+    link: "https://demo.devops.jatinsharma.com/gitops",
     github: "https://github.com/devops-jatin/gitops-pipeline"
   },
   {
@@ -429,7 +429,7 @@ export const projects: Project[] = [
     description: "Modular Terraform configurations to provision a highly available, multi-AZ VPC architecture with public/private subnets, NAT gateways, ALB, auto-scaling EC2 instances, and RDS databases. Secure remote state storage in an S3 bucket with state locking managed by DynamoDB tables.",
     tags: ["Terraform", "AWS", "VPC", "EC2", "RDS", "DynamoDB"],
     level: "Intermediate",
-    link: "https://demo.devopswithjatin.com/aws-vpc",
+    link: "https://demo.devops.jatinsharma.com/aws-vpc",
     github: "https://github.com/devops-jatin/aws-terraform-vpc"
   },
   {
@@ -437,7 +437,7 @@ export const projects: Project[] = [
     description: "Automated deployment of Prometheus and Grafana onto a Kubernetes cluster via Helm charts. Includes custom alerting rules, PromQL queries, and bespoke dashboards for cluster health and app metrics. Configured Alertmanager to route alerts to Slack and email based on thresholds.",
     tags: ["Prometheus", "Grafana", "Helm", "Kubernetes", "Alertmanager"],
     level: "Advanced",
-    link: "https://demo.devopswithjatin.com/observability",
+    link: "https://demo.devops.jatinsharma.com/observability",
     github: "https://github.com/devops-jatin/k8s-observability"
   },
   {
@@ -445,7 +445,7 @@ export const projects: Project[] = [
     description: "A comprehensive Terraform module deploying an AWS EKS cluster configured with namespace-level isolation, Kubernetes RBAC integrated with AWS IAM, Cluster Autoscaler, CoreDNS adjustments, and AWS VPC CNI for optimized pod IP allocation.",
     tags: ["AWS EKS", "Terraform", "IAM", "VPC CNI", "RBAC", "Auto-scaling"],
     level: "Advanced",
-    link: "https://demo.devopswithjatin.com/eks-multitenant",
+    link: "https://demo.devops.jatinsharma.com/eks-multitenant",
     github: "https://github.com/devops-jatin/eks-multitenant-terraform"
   },
   {
@@ -453,7 +453,7 @@ export const projects: Project[] = [
     description: "Deploying Elasticsearch, Fluentd, and Kibana (EFK) via Helm charts on a Kubernetes cluster. Fluentd runs as a DaemonSet to scrape logs from node paths, filters/formats them, and forwards them to Elasticsearch. Kibana indexes the records for rapid log debugging and dashboard analysis.",
     tags: ["Elasticsearch", "Fluentd", "Kibana", "Helm", "Kubernetes", "DaemonSet"],
     level: "Advanced",
-    link: "https://demo.devopswithjatin.com/efk-logging",
+    link: "https://demo.devops.jatinsharma.com/efk-logging",
     github: "https://github.com/devops-jatin/k8s-efk-logging"
   },
   {
@@ -461,7 +461,7 @@ export const projects: Project[] = [
     description: "An event-driven pipeline where access logs uploaded to an S3 bucket trigger AWS Lambda execution. The Lambda function parses, transforms, and indexes the logs inside an OpenSearch service cluster. SNS handles error routing and alert emails.",
     tags: ["AWS Lambda", "S3", "OpenSearch", "Python", "Serverless", "SNS"],
     level: "Intermediate",
-    link: "https://demo.devopswithjatin.com/serverless-logs",
+    link: "https://demo.devops.jatinsharma.com/serverless-logs",
     github: "https://github.com/devops-jatin/serverless-log-processor"
   },
   {
@@ -469,7 +469,7 @@ export const projects: Project[] = [
     description: "A practical implementation of zero-downtime deployments using Nginx reverse proxy and Docker containers. Scripted workflow to seamlessly switch traffic between application versions.",
     tags: ["Docker", "Nginx", "Bash", "Networking"],
     level: "Intermediate",
-    link: "https://demo.devopswithjatin.com/blue-green",
+    link: "https://demo.devops.jatinsharma.com/blue-green",
     github: "https://github.com/devops-jatin/blue-green-deployment"
   },
   {
@@ -477,7 +477,7 @@ export const projects: Project[] = [
     description: "Ansible playbooks and roles to completely bootstrap bare-metal Linux servers. Secures SSH, sets up firewall rules, installs necessary runtimes, and creates user accounts idempotently.",
     tags: ["Ansible", "Linux", "Security", "Automation"],
     level: "Intermediate",
-    link: "https://demo.devopswithjatin.com/ansible",
+    link: "https://demo.devops.jatinsharma.com/ansible",
     github: "https://github.com/devops-jatin/ansible-server-bootstrap"
   }
 ];
