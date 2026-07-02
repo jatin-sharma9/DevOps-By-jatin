@@ -1,0 +1,14 @@
+{
+  "name": "devops-jatin-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "artifacts/devops-jatin",
+    "artifacts/api-server"
+  ],
+  "scripts": {
+    "build:frontend": "npm run build --workspace=@workspace/devops-jatin",
+    "build:backend": "npm run build --workspace=@workspace/api-server"
+  }
+}
