@@ -34,6 +34,7 @@ const searchIndex = [
   { type: "Page", title: "Projects", desc: "Real-world DevOps projects with architecture walkthroughs", href: "/projects", tags: ["projects", "portfolio"] },
   { type: "Page", title: "Resources", desc: "Books, cheatsheets, docs, and YouTube channels", href: "/resources", tags: ["books", "cheatsheet", "resources"] },
   { type: "Page", title: "Best Practices", desc: "Curated industry best practices for Docker, Kubernetes, Terraform, CI/CD, and Linux", href: "/best-practices", tags: ["best practices", "standards", "security", "docker", "kubernetes", "terraform", "ci/cd", "linux"] },
+  { type: "Page", title: "Contact Us", desc: "Get in touch directly via Email or WhatsApp", href: "/contact", tags: ["contact", "whatsapp", "email", "support", "help"] },
 ];
 
 const typeIcon: Record<string, React.ReactNode> = {

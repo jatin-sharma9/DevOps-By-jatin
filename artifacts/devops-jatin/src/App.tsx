@@ -13,6 +13,7 @@ import Interview from "@/pages/interview";
 import Roadmap from "@/pages/roadmap";
 import Resources from "@/pages/resources";
 import BestPractices from "@/pages/best-practices";
+import Contact from "@/pages/contact";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
@@ -29,6 +30,7 @@ function Router() {
         <Route path="/best-practices" component={BestPractices} />
         <Route path="/interview" component={Interview} />
         <Route path="/resources" component={Resources} />
+        <Route path="/contact" component={Contact} />
         <Route component={NotFound} />
       </Switch>
     </Layout>

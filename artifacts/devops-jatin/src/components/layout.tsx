@@ -15,6 +15,7 @@ const navItems = [
   { name: "Best Practices", href: "/best-practices" },
   { name: "Interview", href: "/interview" },
   { name: "Resources", href: "/resources" },
+  { name: "Contact Us", href: "/contact" },
 ];
 
 export default function Layout({ children }: { children: React.ReactNode }) {
