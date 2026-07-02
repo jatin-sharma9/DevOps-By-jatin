@@ -281,3 +281,24 @@
 .animate-pulse-slow {
   animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
+
+/* Custom Contact Layout Utilities */
+.contact-left-col {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .contact-left-col {
+    width: 380px !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+.contact-right-col {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .contact-right-col {
+    flex: 1 1 0% !important;
+    min-width: 0 !important;
+  }
+}

@@ -9,7 +9,7 @@ export default function Contact() {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error" | "info">("idle");
   const [responseMsg, setResponseMsg] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -39,15 +39,23 @@ export default function Contact() {
       });
 
       const result = await response.json();
+      const isSuccess = result.success === "true" || result.success === true;
+      const isActivation = result.message && (
+        result.message.includes("Activation") || 
+        result.message.includes("activate") || 
+        result.message.includes("Activate")
+      );
 
-      if (response.ok && result.success === "true") {
+      if (response.ok && isSuccess) {
         setStatus("success");
         setResponseMsg("Thank you! Your message has been sent successfully.");
-        // Reset form
         setName("");
         setEmail("");
         setSubject("");
         setMessage("");
+      } else if (isActivation) {
+        setStatus("info");
+        setResponseMsg("Activation Required: FormSubmit has sent an activation link to jatin.sharma.tech93@gmail.com. Please check your inbox (including spam) and click the link to activate the form.");
       } else {
         setStatus("error");
         setResponseMsg(result.message || "Failed to submit form. Please try again.");
@@ -60,8 +68,8 @@ export default function Contact() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-16 max-w-5xl font-sans">
-      <div className="text-center mb-16">
+    <div className="w-full max-w-5xl mx-auto px-4 py-20 font-sans">
+      <div className="text-center mb-12">
         <Badge variant="outline" className="font-mono text-xs text-primary border-primary/30 uppercase mb-3">
           Get In Touch
         </Badge>
@@ -71,53 +79,53 @@ export default function Contact() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div className="flex flex-col md:flex-row gap-8 items-start">
         {/* Info Column */}
-        <div className="lg:col-span-5 space-y-6">
+        <div className="contact-left-col space-y-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="p-6 rounded-2xl border border-border bg-card shadow-sm glow-card flex flex-col justify-between h-full"
+            className="p-6 rounded-2xl border border-border bg-card shadow-sm glow-card flex flex-col gap-6"
           >
             <div>
-              <h3 className="text-xl font-bold mb-4 font-mono text-foreground flex items-center gap-2">
+              <h3 className="text-xl font-bold mb-3 font-mono text-foreground flex items-center gap-2">
                 Contact Methods
               </h3>
-              <p className="text-sm text-muted-foreground mb-6">
+              <p className="text-sm text-muted-foreground">
                 Feel free to message me directly. I usually respond within 24 hours.
               </p>
+            </div>
 
-              <div className="space-y-6">
-                {/* Email Section */}
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-lg bg-primary/10 text-primary mt-1">
-                    <Mail className="w-6 h-6" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground font-mono">Email Me</p>
-                    <a href="mailto:jatin.sharma.tech93@gmail.com" className="text-sm md:text-base font-medium text-foreground hover:text-primary transition-colors break-all">
-                      jatin.sharma.tech93@gmail.com
-                    </a>
-                  </div>
+            <div className="space-y-6">
+              {/* Email Section */}
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-lg bg-primary/10 text-primary shrink-0">
+                  <Mail className="w-6 h-6" />
                 </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground font-mono mb-1">Email Me</p>
+                  <a href="mailto:jatin.sharma.tech93@gmail.com" className="text-sm md:text-base font-medium text-foreground hover:text-primary transition-colors break-all block">
+                    jatin.sharma.tech93@gmail.com
+                  </a>
+                </div>
+              </div>
 
-                {/* WhatsApp Section */}
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-lg bg-green-500/10 text-green-400 mt-1">
-                    <Phone className="w-6 h-6" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground font-mono">WhatsApp Chat</p>
-                    <a href="https://wa.me/919350198230" target="_blank" rel="noopener noreferrer" className="text-sm md:text-base font-medium text-foreground hover:text-green-400 transition-colors">
-                      +91 9350198230
-                    </a>
-                  </div>
+              {/* WhatsApp Section */}
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-lg bg-green-500/10 text-green-400 shrink-0">
+                  <Phone className="w-6 h-6" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground font-mono mb-1">WhatsApp Chat</p>
+                  <a href="https://wa.me/919350198230" target="_blank" rel="noopener noreferrer" className="text-sm md:text-base font-medium text-foreground hover:text-green-400 transition-colors block">
+                    +91 9350198230
+                  </a>
                 </div>
               </div>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-border/60 flex flex-col gap-3">
+            <div className="pt-4 border-t border-border/60 flex flex-col gap-3">
               <a
                 href="mailto:jatin.sharma.tech93@gmail.com"
                 className="w-full inline-flex items-center justify-between p-3.5 rounded-xl border border-border bg-background hover:bg-muted text-sm font-mono transition-all group"
@@ -140,7 +148,7 @@ export default function Contact() {
         </div>
 
         {/* Form Column */}
-        <div className="lg:col-span-7">
+        <div className="contact-right-col">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -150,9 +158,9 @@ export default function Contact() {
             <h3 className="text-xl font-bold mb-6 font-mono text-foreground">Send A Message</h3>
             
             <form onSubmit={handleSubmit} className="space-y-5">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <label htmlFor="name" className="text-xs font-mono font-semibold uppercase tracking-wider text-muted-foreground">
+                  <label htmlFor="name" className="text-xs font-mono font-semibold uppercase tracking-wider text-muted-foreground block">
                     Your Name
                   </label>
                   <input
@@ -167,7 +175,7 @@ export default function Contact() {
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="email" className="text-xs font-mono font-semibold uppercase tracking-wider text-muted-foreground">
+                  <label htmlFor="email" className="text-xs font-mono font-semibold uppercase tracking-wider text-muted-foreground block">
                     Email Address
                   </label>
                   <input
@@ -183,7 +191,7 @@ export default function Contact() {
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="subject" className="text-xs font-mono font-semibold uppercase tracking-wider text-muted-foreground">
+                <label htmlFor="subject" className="text-xs font-mono font-semibold uppercase tracking-wider text-muted-foreground block">
                   Subject
                 </label>
                 <input
@@ -198,7 +206,7 @@ export default function Contact() {
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="message" className="text-xs font-mono font-semibold uppercase tracking-wider text-muted-foreground">
+                <label htmlFor="message" className="text-xs font-mono font-semibold uppercase tracking-wider text-muted-foreground block">
                   Message Details
                 </label>
                 <textarea
@@ -220,7 +228,19 @@ export default function Contact() {
                     exit={{ opacity: 0 }}
                     className="p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400 text-sm flex items-start gap-2.5"
                   >
-                    <CheckCircle className="w-5 h-5 shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 shrink-0 mt-0.5 text-green-400" />
+                    <span>{responseMsg}</span>
+                  </motion.div>
+                )}
+
+                {status === "info" && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    className="p-4 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-400 text-sm flex items-start gap-2.5 animate-pulse-slow"
+                  >
+                    <AlertCircle className="w-5 h-5 shrink-0 mt-0.5 text-amber-400" />
                     <span>{responseMsg}</span>
                   </motion.div>
                 )}
